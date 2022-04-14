@@ -22,6 +22,7 @@ Grace days remaining: < # >/5
  < List any outside resources used >
 https://stackoverflow.com/questions/9453820/alternative-to-python-string-item-assignment
 https://www.geeksforgeeks.org/python-string-concatenation/
+https://www.codegrepper.com/code-examples/python/print+character+using+ascii+value+in+python
 
 ## MISCELLANEOUS COMMENTS:
  < Anything you would like the grader to know >

@@ -43,4 +43,31 @@ class StringUtility:
       return final_list[1:end]
     return self.string
 
-  
+  def asciiSum(self):
+    sum_ascii = 0
+    for i in self.string:
+      sum_ascii += ord(i)
+    return sum_ascii
+
+  def cipher(self):
+    #thing = self.string[0:len(self.string)] #for replace attempt
+    thing = []
+    index = 0
+    ORDa = ord("a")
+    ORDz = ord("z")
+    ORDA = ord("A")
+    ORDZ = ord("Z")
+    for i in self.string:
+      cipher_ascii = ord(i)+len(self.string)
+      if ord(i) >= ORDa: #lowercase
+        if cipher_ascii > ORDz: #past z
+          difference = cipher_ascii-ORDz
+          cipher_ascii = ORDa+difference-1 #wraps back around
+      if ord(i) < ORDa: #uppercase
+        if ord(i) > ORDZ: #past Z
+          difference = cipher_ascii-ORDZ
+          cipher_ascii = ORDA+difference-1 #wraps 
+      index+=1 ##same
+      thing[index:index] = chr(cipher_ascii)
+    return "".join(thing)
+    
