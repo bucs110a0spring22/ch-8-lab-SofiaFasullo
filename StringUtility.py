@@ -61,22 +61,15 @@ class StringUtility:
       cipher_ascii = ord(i)+len(self.string)
       if ord(i) >= ORDa: #lowercase
         if cipher_ascii > ORDz: #past z
-          if len(self.string) < 26: #long alphabet string
-            difference = cipher_ascii-ORDz
-            cipher_ascii = ORDa+difference-1 #wraps back around
-          else:
-            difference = cipher_ascii-(ORDz+25)
-            cipher_ascii = ORDa+difference-1 #wraps back around
+          difference = cipher_ascii-ORDz
+          cipher_ascii = ORDa+difference-1 #wraps back around
       if ord(i) < ORDa: #uppercase
         if ord(i) == ord(" "):
           cipher_ascii = ord(" ")
         elif cipher_ascii > ORDZ: #past Z
-          if len(self.string) < 26: #long alphabet
-            difference = cipher_ascii-ORDZ
-            cipher_ascii = ORDA+difference-1 #wraps back around
-          else:
-            difference = cipher_ascii-(ORDZ+25)
-            cipher_ascii = ORDA+difference-1 #wraps back around
+          difference = cipher_ascii-ORDZ
+          cipher_ascii = ORDA+difference-1 #wraps 
+      index+=1 ##same
       thing[index:index] = chr(cipher_ascii)
     return "".join(thing)
     
