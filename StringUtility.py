@@ -50,8 +50,7 @@ class StringUtility:
     return sum_ascii
 
   def cipher(self):
-    #thing = self.string[0:len(self.string)] #for replace attempt
-    thing = []
+    encoded = []
     index = 0
     ORDa = ord("a")
     ORDz = ord("z")
@@ -62,12 +61,17 @@ class StringUtility:
       if ord(i) >= ORDa: #lowercase
         if cipher_ascii > ORDz: #past z
           difference = cipher_ascii-ORDz
-          cipher_ascii = ORDa+difference-1 #wraps back around
-      if ord(i) < ORDa: #uppercase
-        if ord(i) > ORDZ: #past Z
+          cipher_ascii = ORDa+difference-1
+          if difference > 25:
+            cipher_ascii = ORDa+(difference-25)-1
+      if ord(i) < ORDa: #uppercase or space
+        if ord(i) == ord(" "):
+          cipher_ascii = ord(" ")
+        elif cipher_ascii > ORDZ: #past Z
           difference = cipher_ascii-ORDZ
-          cipher_ascii = ORDA+difference-1 #wraps 
-      index+=1 ##same
-      thing[index:index] = chr(cipher_ascii)
-    return "".join(thing)
+          cipher_ascii = ORDA+difference-1
+          if difference > 25:
+            cipher_ascii = ORDA+(difference-25)-1
+      encoded[index:index] = chr(cipher_ascii)
+    return "".join(encoded)
     
