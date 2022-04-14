@@ -20,6 +20,7 @@ Grace days remaining: < # >/5
 
 ## REFERENCES:
  < List any outside resources used >
+https://stackoverflow.com/questions/9453820/alternative-to-python-string-item-assignment
 
 ## MISCELLANEOUS COMMENTS:
  < Anything you would like the grader to know >
