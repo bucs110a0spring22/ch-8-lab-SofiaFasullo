@@ -38,9 +38,9 @@ class StringUtility:
       first = self.string[0]
       manipulate = self.string[1:len(self.string)]
       replaced = manipulate.replace(first,"*")
-      trying = ""
-      final_list = trying.join([first,replaced])
-      return final_list
+      final_list = first.join([first,replaced]) 
+      end = len(self.string) + 1
+      return final_list[1:end]
     return self.string
 
   
