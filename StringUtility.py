@@ -61,9 +61,17 @@ class StringUtility:
       cipher_ascii = ord(i)+len(self.string)
       if ord(i) >= ORDa: #lowercase
         if cipher_ascii > ORDz: #past z
-          difference = cipher_ascii-ORDz
-          cipher_ascii = ORDa+difference-1 #wraps back around
-      if ord(i) < ORDa: #uppercase
+          if len(self.string) > 25:
+            if i == "a": #this kept being difficult, just solved it this way with a special case
+              cipher_ascii = ord("z")
+            else:
+              cipher_ascii = ord(i)+len(self.string)-26
+              difference = cipher_ascii-ORDz
+              cipher_ascii = ORDa+difference-1 #wraps back around
+          else:
+            difference = cipher_ascii-ORDz
+            cipher_ascii = ORDa+difference-1 #wraps
+      elif ord(i) < ORDa: #uppercase
         if ord(i) == ord(" "):
           cipher_ascii = ord(" ")
         elif cipher_ascii > ORDZ: #past Z
